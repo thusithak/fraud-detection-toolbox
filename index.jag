@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fraud Detection Toolbox</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-table.min.css" />
+<link rel="stylesheet" href="css/default.css" />
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <![endif]-->
+          </head>
+          <body>
+          <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a id="fdt-logo" class="navbar-brand" href="index.jag">
+          <img alt="FDT" src="images/logo.png">
+          </a>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="alertDd" class="dropdown" style="display:none;">
+              <a href="#" class="dropdown-toggle success" data-toggle="dropdown" aria-expanded="true">
+              <i class="glyphicon glyphicon-bell"></i> 
+              <span id="fdCount" class="badge">0</span>
+              </a>
+              <ul class="dropdown-menu alert-dropdown">
+
+              </ul> 
+            </li>
+            <li><a id="homeBtn" href="index.jag" class="active"><i class="glyphicon glyphicon-home icon-home"></i> Home</a></li>
+            <li><a id="dashboardBtn" href="dashboard.jag"><i class="glyphicon glyphicon-th-large icon-th-large"></i> Dashboard</a></li>
+          </ul>
+          </div>
+          </div>
+          </nav>
+
+          <div class="container-fluid">
+          <div class="row padtop70">
+          <div class="col-sm-12 col-md-12">
+          <div id="fraudMsgOk" class="alert alert-info alert-dismissible fade in alert-detection-method0" role="alert">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>No possible fraudulent transactions detected..</strong>
+          </div>
+          <div id="fraudMsg1" class="alert alert-danger alert-dismissible fade in alert-detection-method1" role="alert">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>-</strong>
+          <small class="padleft20">-</small>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-sm-12 col-md-12">
+          <div id="fraudulent-data-panel" class="panel panel-danger">
+          <div class="panel-heading">
+          <h3 class="panel-title"><strong>Transactions for card number: </strong><span id="cardNumberDisplay">-</span></h3>
+          </div>
+          <div class="panel-body light-danger">
+          <form class="form-horizontal">
+          <div id="appendContainerL"></div>
+          <div class="form-group">
+          <div class="col-xs-offset-2 col-xs-10 t-right">
+          <button id="investigateBtn" type="button" class="btn btn-primary">Investigate...</button>
+          </div>
+          </div>
+          </form>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+
+          <footer class="footer container-fluid">
+          <p class="copyrights t-center">&copy; 2015 WSO2 Inc. All Rights Reserved</p>
+          </footer>
+
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+          <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+          <script type="text/javascript" src="js/bstable/bootstrap-table.min.js"></script>
+          <script type="text/javascript" src="js/util.js" ></script>
+          <script type="text/javascript">
+          // $("#fraudulent-data-panel .form-group").hover(function () {
+          //   var current = $(this).index();
+          //   var comparable = $(this).hasClass("comparable");
+          //   if (comparable) {
+          //       $(this).toggleClass("highlight-row");
+          //       $("#initial-data-panel .form-group:eq(" + current + ")").toggleClass("highlight-row");
+          //   }
+          // });
+        //localStorage.clear();
+        fdtRestWsUtil.startWs();
+        //var d = loadData("wsDataLocal1");
+        //if(!$.isEmptyObject(d)){
+          //bindWsContent(d,1);
+          //console.log(d);
+        //}
+        // var current_num = loadData("current_num");
+        // if(current_num != null){
+        //       var d = loadData("wsDataLocal" + current_num);
+        //     //console.log("data: " + d.event.payloadData.txnid);
+        //     if ($.isEmptyObject(d)) {
+        //         window.msgCount = 0;
+        //     } else {
+        //         var c = Object.keys(d).length;
+        //         window.msgCount = c;
+        //     }
+        //     var dd = loadData("wsDataLocal" + msgCount);
+        //     bindWsContent(dd, msgCount);
+        //     $("#fraudMsg1").show();
+        //     $("#fraudMsgOk").hide();
+        //     $("#fraudulent-data-panel").show();
+        // }
+        $("#investigateBtn,#dashboardBtn").on('click',function(event){
+            event.preventDefault();
+            var current_num = loadData("current_num");
+            
+            if(current_num == null){
+              saveData("current_num","1");
+              console.log("if:" +current_num);
+            }
+            location.href = "dashboard.jag";
+        });
+
+      </script>
+      </body>
+      </html>
