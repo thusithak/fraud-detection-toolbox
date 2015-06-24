@@ -122,10 +122,15 @@
 
             <script type="text/javascript" src="js/xcolor/jquery.xcolor.min.js"></script>
 
+            <script type="text/javascript" src="js/shippingIpMap.js"></script>
+            <script type="text/javascript" src="js/intensityMap.js"></script>
+            <script type="text/javascript" src="js/sequanceMap.js"></script>
+            <script type="text/javascript" src="js/geoJson.js" ></script>
 
             <script type="text/javascript" src="js/util.js" ></script>
             <script type="text/javascript" src="js/fdt.js" ></script>
             <script type="text/javascript" src="js/fdtClient.js" ></script>
+
 
             <script type="text/javascript">
             fdtRestWsUtil.startWs();
@@ -231,7 +236,7 @@
               };
             window.operateEvents = {
                 'click .remove': function (e, value, row, index) {
-                  console.log(row.txnid);
+                  //console.log(row.txnid);
                   var ids = row.txnid;
                   //console.log("row delete : " + ids);
                   //$("#dashboard-main-table").bootstrapTable('remove', {field: 'id', values: ids});
@@ -708,10 +713,7 @@
 
             </script>
 
-            <script type="text/javascript" src="js/geoJson.js" ></script>
-            <script type="text/javascript" src="js/shippingIpMap.js"></script>
-            <script type="text/javascript" src="js/intensityMap.js"></script>
-            <script type="text/javascript" src="js/sequanceMap.js"></script>
+
 
             </body>
             </html>

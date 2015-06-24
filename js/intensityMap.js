@@ -17,8 +17,7 @@ function initIntensityMapFunc(featureCollection) {
     function onEachFeature(feature, layer) {
         //console.log("inside onEachFeature");
         var popupContent = "<b>Amount: </b>" + feature.properties.currency +
-            " " + feature.properties.txnamt + " * " + feature.properties
-            .qty + "<br/>";
+            " " + feature.properties.txnamt + "<br/>";
         if (feature.properties && feature.properties.popupContent) {
             popupContent += "<b>Shipped to: </b>" + feature.properties.popupContent;
         }
@@ -31,8 +30,7 @@ function initIntensityMapFunc(featureCollection) {
         onEachFeature: onEachFeature,
         pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, {
-                radius: (feature.properties.intensity +
-                    1) * feature.properties.qty,
+                radius: feature.properties.intensity,
                 fillColor: "#D61800",
                 color: "#FFFFFF",
                 weight: 0,

@@ -42,14 +42,15 @@ function initFeatureCollection(featureData) {
             intensityArr[index] = Math.round(intensityArr[index] /
                 ratio);
         });
+        //console.log("ratio: "+ratio);
     $.each(featureData, function(index, val) {
         var comma = (index !== 0 ? "," : "");
-        var coordinates = val.addLat +","+ val.addLong;
-        var coordinatesIp = val.ipLat +","+ val.ipLong;
-        var iCoordinates = val.addLong +","+ val.addLat;
-        var iCoordinatesIp = val.ipLong +","+ val.ipLat;
-        console.log("coordinates:" +coordinates +" --- coordinatesIp:" +coordinatesIp);
-        console.log("icoordinates:" +iCoordinates +" --- icoordinatesIp:" +iCoordinatesIp);
+        var coordinates = val.addLong +","+ val.addLat;
+        var coordinatesIp = val.ipLong +","+ val.ipLat;
+        var iCoordinates = val.addLat +","+ val.addLong;
+        var iCoordinatesIp = val.ipLat +","+ val.ipLong;
+        //console.log("coordinates:" +coordinates +" --- coordinatesIp:" +coordinatesIp);
+        //console.log("icoordinates:" +iCoordinates +" --- icoordinatesIp:" +iCoordinatesIp);
         var shippingA = val.shippingaddress.replace(/['"]+/g, '');
         var billingA = val.billingaddress.replace(/['"]+/g, '');
 

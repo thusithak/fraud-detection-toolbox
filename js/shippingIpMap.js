@@ -105,7 +105,7 @@ function shippingIpMapFunc(featureCollection, featureCollectionIp,
             arrowLines['arrow' + annon] = L.polyline(feature.coordinates, {});
             arrowLines['arrowHead' + annon] = L.polylineDecorator(arrowLines['arrow' + annon],{
                 patterns: [
-                    {offset: 10, repeat: 0, symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: false, pathOptions: {stroke: true}})}
+                    {offset: 10, repeat: 0, symbol: L.Symbol.arrowHead({pixelSize: 4, polygon: false, pathOptions: {stroke: true}})}
                 ]
             });
             arrowLines['arrow' + annon].addTo(shippingIpMap);
@@ -115,17 +115,12 @@ function shippingIpMapFunc(featureCollection, featureCollectionIp,
 
       
 function logArrayElements(element, index, array) {
- var arrow = L.polyline(element.coordinates, {}).addTo(shippingIpMap);
+   var arrow = L.polyline(element.coordinates, {}).addTo(shippingIpMap);
    var arrowHead = L.polylineDecorator(arrow).addTo(shippingIpMap);
-   
-   var arrowOffset = 0;
-   var anim = window.setInterval(function() {
+
        arrowHead.setPatterns([
-           {offset: arrowOffset*2+'%', repeat: 0, symbol: L.Symbol.arrowHead({pixelSize: 10, polygon: false, pathOptions: {stroke: true}})}
-       ])
-       if(++arrowOffset > 100)
-           arrowOffset = 0;
-   }, 10);
+           {offset: '50%', repeat: 0, symbol: L.Symbol.arrowHead({pixelSize: 10, polygon: false, pathOptions: {stroke: true}})}
+       ]);
 }
 
 featureCollectionLine.forEach(logArrayElements);

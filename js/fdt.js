@@ -1,5 +1,5 @@
 fdt = new function() {
-    var tableName = "TRANSACTIONSTREAM";
+    var tableName = "INSTREAM";
     this.createNewTable = function() {
         //console.log("Clicked on createNewTable");
         fdtClient.createTable(tableName);

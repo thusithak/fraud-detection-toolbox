@@ -1,8 +1,8 @@
 fdtRestRequestUtil = new function() {
         this.makeJsonRequest = function(type, u, d, callback) {
-            //var BAMUrl = "http://10.100.7.17:9763" + u; //localhost
+            var BAMUrl = "https://localhost:9443" + u; //localhost
             //var BAMUrl = "http://10.100.5.46:9763" + u;
-            var BAMUrl = "http://192.168.57.141:9763" + u;
+            //var BAMUrl = "http://192.168.57.141:9763" + u;
             var username = "admin";
             var password = "admin";
             $.ajax({
@@ -41,8 +41,9 @@ fdtRestWsUtil = new function() {
 
 
         console.log("web socket started... ");
-        //var CEPUrl = 'ws://10.100.7.17:9768/outputwebsocket/WebsocketOutputAdaptor/fraudevent'; //localhost
-        var CEPUrl = 'ws://192.168.57.141:9763/outputwebsocket/WebsocketPublisher';
+        var CEPUrl = 'ws://localhost:9763/outputwebsocket/WebsocketPublisher'; //localhost
+        //var CEPUrl = 'ws://192.168.57.141:9763/outputwebsocket/WebsocketPublisher';
+        //var CEPUrl = 'ws://10.100.5.46:9763/outputwebsocket/WebsocketPublisher';
         var ws = new WebSocket(CEPUrl);
         var wsData;
         ws.onopen = function() {
