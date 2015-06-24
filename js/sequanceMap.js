@@ -40,19 +40,6 @@ function sequanceMapFunc(featureCollection) {
                     noHide: true,
                     direction: 'right'
                 });
-                // var pathPattern = L.polylineDecorator(feature.properties.coordinates,
-                //     {
-                //         patterns: [
-                //             { offset: 0, repeat: 10, symbol: L.Symbol.dash({pixelSize: 5, pathOptions: {color: '#000', weight: 1, opacity: 0.2}}) },
-                //             { offset: '16%', repeat: '33%', symbol: L.Symbol.marker({rotate: true, markerOptions: {
-                //                 icon: L.icon({
-                //                     iconUrl: 'js/leaflet/icon_plane.png',
-                //                     iconAnchor: [16, 16] 
-                //                 })
-                //             }})}
-                //         ]
-                //     }
-                // ).addTo(sequanceMap);
             }
         });
     }
@@ -64,7 +51,7 @@ function sequanceMapFunc(featureCollection) {
         pointToLayer: function(feature, latlng) {
             var LocationIcon = L.MakiMarkers.icon({
                 icon: "circle",
-                color: "#" + feature.properties.markerColor,
+                color: feature.properties.markerColor,
                 size: "m",
                 labelAnchor: [6, -20]
             });

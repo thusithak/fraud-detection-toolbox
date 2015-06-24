@@ -120,6 +120,9 @@
             <script type="text/javascript" src="js/daterangepicker/moment.min.js"></script>
             <script type="text/javascript" src="js/daterangepicker/daterangepicker.js"></script>
 
+            <script type="text/javascript" src="js/xcolor/jquery.xcolor.min.js"></script>
+
+
             <script type="text/javascript" src="js/util.js" ></script>
             <script type="text/javascript" src="js/fdt.js" ></script>
             <script type="text/javascript" src="js/fdtClient.js" ></script>
@@ -247,7 +250,7 @@
             var initFrontendFilterCount = 0;
             function initTable(tableData){
 
-              //console.log(tableData[4].txnid);
+              //console.log(tableData);
               initTableCount++;
               window.l = globalTnx.length;
               $("#dashboard-main-table").bootstrapTable({
@@ -704,6 +707,7 @@
             }
 
             </script>
+
             <script type="text/javascript" src="js/geoJson.js" ></script>
             <script type="text/javascript" src="js/shippingIpMap.js"></script>
             <script type="text/javascript" src="js/intensityMap.js"></script>

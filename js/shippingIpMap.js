@@ -52,7 +52,7 @@ function shippingIpMapFunc(featureCollection, featureCollectionIp,
         pointToLayer: function(feature, latlng) {
             var LocationIcon = L.MakiMarkers.icon({
                 icon: "building",
-                color: "#" + feature.properties.markerColor,
+                color: feature.properties.markerColor,
                 size: "m"
             });
             return L.marker(latlng, {
@@ -74,7 +74,7 @@ function shippingIpMapFunc(featureCollection, featureCollectionIp,
             //console.log("ip: " + ipArray.length+ " unique: " + uniqueIpArray.length);
             var IpIcon = L.MakiMarkers.icon({
                 icon: "triangle",
-                color: "#" + feature.properties.markerColor,
+                color: feature.properties.markerColor,
                 size: "m"
             });
             return L.marker(latlng, {
