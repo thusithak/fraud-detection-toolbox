@@ -83,49 +83,28 @@ function shippingIpMapFunc(featureCollection, featureCollectionIp,
         }
     });
     ipGroup.addTo(shippingIpMap);
-    var lineStyle = {
-        color: "#333",
-        weight: 2,
-        smoothFactor: 1,
-        opacity: 1
-    };
-    
+
     var lineGroup = L.geoJson(featureCollectionLine, {
-        //style: lineStyle,
-        //onEachFeature: onEachFeature3,
+        onEachFeature: onEachFeature3,
     });
-    //console.log(featureCollectionLine);
-    
+
+
     function onEachFeature3(feature, layer) {
             var arrowLines = {};
             var annon = JSON.stringify(feature.coordinates[0][0]).replace('-','').replace('.','');
             var numRand = Math.floor(Math.random()*100);
             annon =  annon + numRand;
             //console.log(annon);
-            arrowLines['arrow' + annon] = L.polyline(feature.coordinates, {});
+            arrowLines['arrow' + annon] = L.polyline(feature.coordinates, {color: '#333', weight: 2, opacity: 1});
             arrowLines['arrowHead' + annon] = L.polylineDecorator(arrowLines['arrow' + annon],{
                 patterns: [
-                    {offset: 10, repeat: 0, symbol: L.Symbol.arrowHead({pixelSize: 4, polygon: false, pathOptions: {stroke: true}})}
+                    {offset: '50%', repeat: 0, symbol: L.Symbol.arrowHead({pixelSize: 10, polygon: false, pathOptions: {color: '#333', weight: 2, opacity: 1}})}
                 ]
             });
             arrowLines['arrow' + annon].addTo(shippingIpMap);
             arrowLines['arrowHead' + annon].addTo(shippingIpMap);
             //console.log(JSON.stringify(arrowLines[0]));
         }
-
-      
-function logArrayElements(element, index, array) {
-   var arrow = L.polyline(element.coordinates, {}).addTo(shippingIpMap);
-   var arrowHead = L.polylineDecorator(arrow).addTo(shippingIpMap);
-
-       arrowHead.setPatterns([
-           {offset: '50%', repeat: 0, symbol: L.Symbol.arrowHead({pixelSize: 10, polygon: false, pathOptions: {stroke: true}})}
-       ]);
-}
-
-featureCollectionLine.forEach(logArrayElements);
-
-//console.log(featureCollectionLine);
 
 
     //lineGroup.addTo(shippingIpMap);
