@@ -27,7 +27,7 @@ var lineStringHead = '[';
 var lineStringFoot = ']';
 
 function initFeatureCollection(featureData) {
-
+    $("#shipping-ip-map,#intensity-map,#sequance-map").preloader("show");
     var features = '';
     var featuresIp = '';
     var lineString = '';
@@ -61,7 +61,7 @@ function initFeatureCollection(featureData) {
         txnamt = val.txnamt;
         intensity = intensityArr[index];
         timestamp = val.timestamp;
-        txnid = val.txnid;
+        txnid = '"' + val.txnid + '"';
         qty = val.qty;
         email = '"' + val.email + '"';
         currency = '"' + val.currency + '"';
