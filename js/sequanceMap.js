@@ -11,15 +11,15 @@ function sequanceMapFunc(featureCollection) {
     L.tileLayer(MB_URL, {
         maxZoom: 18,
         attribution: MB_ATTR,
-        id: 'examples.map-20v6611k'
+        id: 'examples.map-zr0njcqy'
     }).addTo(sequanceMap);
     var grayscale = L.tileLayer(MB_URL, {
         attribution: MB_ATTR,
-        id: 'examples.map-20v6612k'
+        id: 'examples.map-zr0njcqy'
     });
     var streets = L.tileLayer(MB_URL, {
         attribution: MB_ATTR,
-        id: 'examples.map-i876mjb7'
+        id: 'examples.map-zr0njcqy'
     });
     var timeArr = [];
 

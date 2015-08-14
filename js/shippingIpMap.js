@@ -13,15 +13,15 @@ function shippingIpMapFunc(featureCollection, featureCollectionIp,
     L.tileLayer(MB_URL, {
         maxZoom: 18,
         attribution: MB_ATTR,
-        id: 'examples.map-20v6611k'
+        id: 'examples.map-zr0njcqy'
     }).addTo(shippingIpMap);
     var grayscale = L.tileLayer(MB_URL, {
         attribution: MB_ATTR,
-        id: 'examples.map-20v6611k'
+        id: 'examples.map-zr0njcqy'
     });
     var streets = L.tileLayer(MB_URL, {
         attribution: MB_ATTR,
-        id: 'examples.map-i875mjb7'
+        id: 'examples.map-zr0njcqy'
     });
 
     function onEachFeature1(feature, layer) {

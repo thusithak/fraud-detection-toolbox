@@ -11,7 +11,7 @@ function initIntensityMapFunc(featureCollection) {
     L.tileLayer(MB_URL, {
         maxZoom: 18,
         attribution: MB_ATTR,
-        id: 'examples.map-20v6611k'
+        id: 'examples.map-zr0njcqy'
     }).addTo(intensityMap);
 
     function onEachFeature(feature, layer) {
