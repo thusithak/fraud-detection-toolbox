@@ -519,6 +519,7 @@
                   var luceneQ = generateLucene(data);
                   clearMaps();
                   fdt.filterRecords(luceneQ,false);
+                  $("input[name="refresh"]").click();
                   console.log(">>>>addRecordsBtn: ");
                   console.log(data);
                 });
