@@ -513,20 +513,20 @@
                   //$("#dashboard-main-table").bootstrapTable('resetView');
                 });
 
-            }
-
-            $("#addRecordsBtn").on("click", function(e){
-                  
+                $("#addRecordsBtn").on("click", function(e){
                   var data = $('#filter-bar').bootstrapTableFilter('getData');
                   var luceneQ = generateLucene(data);
-
-                  fdt.filterRecords(luceneQ,false);
-                  clearMaps();
-                  $('input[name="refresh"]').click();
-                  console.log(">>>>addRecordsBtn: ");
-                  console.log(data);
+                  if(initTableCount == 1){
+                      fdt.filterRecords(luceneQ,false);
+                      $('input[name="refresh"]').click();
+                      clearMaps();
+                      console.log(">>>>addRecordsBtn: ");
+                  }
+                  //console.log(data);
                 });
-        
+            }
+
+                        
 
 
             function generateLucene(data){
